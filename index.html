@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اتوگالری پرشیا | خرید و فروش خودرو</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0A1628;
+--navy2:#1A2F4A;
+--gold:#D4AF37;
+--gold2:#B8941F;
+--white:#fff;
+--gray:#8A94A6;
+--off:#F4F6F9;
+--shadow:0 20px 50px rgba(10,22,40,.15);
+--shadow-gold:0 15px 40px rgba(212,175,55,.4);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--off);color:#1A1A2E;line-height:1.9;direction:rtl;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* هدر */
+.header{position:fixed;top:0;right:0;left:0;z-index:1000;padding:20px 0;transition:.4s;background:transparent}
+.header.scrolled{background:rgba(10,22,40,.95);backdrop-filter:blur(15px);padding:12px 0;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--white);font-size:1.5rem;font-weight:800}
+.logo-icon{font-size:1.8rem;filter:drop-shadow(0 0 10px rgba(212,175,55,.5))}
+.logo-text span{color:var(--gold)}
+.nav{display:flex;gap:30px;align-items:center}
+.nav-link{color:rgba(255,255,255,.8);font-size:.95rem;font-weight:500;transition:.3s;position:relative}
+.nav-link:hover{color:var(--gold)}
+.nav-link::after{content:'';position:absolute;bottom:-6px;right:0;left:0;height:2px;background:var(--gold);transform:scaleX(0);transition:.3s;border-radius:2px}
+.nav-link:hover::after{transform:scaleX(1)}
+.btn-header{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);padding:10px 24px;border-radius:50px;font-weight:700;font-size:.9rem;transition:.3s;box-shadow:var(--shadow-gold)}
+.btn-header:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(212,175,55,.5)}
+.menu-toggle{display:none;background:none;color:var(--white);font-size:1.5rem;padding:8px}
+
+/* هیرو */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--navy);padding:100px 0 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(212,175,55,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(26,47,74,.9),transparent 50%),linear-gradient(135deg,#0A1628 0%,#1A2F4A 50%,#0A1628 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.03) 1px,transparent 1px);background-size:60px 60px;opacity:.5}
+.hero-content{position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:8px 22px;border-radius:50px;font-size:.85rem;font-weight:500;margin-bottom:30px}
+.badge-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 15px var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3);opacity:.7}}
+.hero-title{font-size:3.5rem;font-weight:900;line-height:1.3;margin-bottom:25px;color:var(--white)}
+.hero-title .gold{color:var(--gold);text-shadow:0 0 50px rgba(212,175,55,.5)}
+.hero-desc{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:600px;margin-bottom:40px;line-height:2}
+.hero-btns{display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:50px;font-weight:700;font-size:1rem;transition:.3s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);box-shadow:var(--shadow-gold)}
+.btn-gold:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(212,175,55,.5)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(212,175,55,.5)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-4px)}
+
+/* بخش‌ها */
+.section{padding:100px 0}
+.section-dark{background:var(--navy);color:var(--white)}
+.section-head{text-align:center;margin-bottom:60px}
+.section-label{display:inline-block;color:var(--gold);font-size:.85rem;font-weight:700;letter-spacing:3px;margin-bottom:15px}
+.section-title{font-size:2.5rem;font-weight:900;margin-bottom:15px;color:var(--navy)}
+.section-dark .section-title{color:var(--white)}
+.section-desc{color:#666;max-width:600px;margin:0 auto}
+.section-dark .section-desc{color:rgba(255,255,255,.6)}
+
+/* فیلتر */
+.filters{background:var(--white);border-radius:20px;padding:25px;margin-bottom:40px;box-shadow:0 5px 20px rgba(10,22,40,.05);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.filter-group{display:flex;flex-direction:column;gap:8px}
+.filter-group label{font-size:.85rem;font-weight:600;color:var(--navy)}
+.filter-group select,.filter-group input{width:100%;padding:12px 15px;border:2px solid rgba(10,22,40,.08);border-radius:12px;font-family:inherit;font-size:.9rem;background:var(--off);outline:none;transition:.3s;color:var(--navy)}
+.filter-group select:focus,.filter-group input:focus{border-color:var(--gold);background:var(--white)}
+
+/* ماشین‌ها */
+.cars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
+.car-card{background:var(--white);border-radius:20px;overflow:hidden;transition:.4s;border:1px solid rgba(10,22,40,.05);cursor:pointer}
+.car-card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:rgba(212,175,55,.3)}
+.car-image{aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden}
+.car-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.car-image::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(212,175,55,.2),transparent 70%)}
+.car-badge{position:absolute;top:15px;right:15px;background:var(--gold);color:var(--navy);padding:5px 15px;border-radius:50px;font-size:.75rem;font-weight:700;z-index:2}
+.car-badge.used{background:var(--gray);color:var(--white)}
+.car-info{padding:25px}
+.car-info h3{font-size:1.2rem;color:var(--navy);margin-bottom:10px;font-weight:800}
+.car-details{display:flex;gap:15px;flex-wrap:wrap;margin-bottom:15px;font-size:.85rem;color:#666}
+.car-details span{display:flex;align-items:center;gap:5px}
+.car-details i{color:var(--gold)}
+.car-price{font-size:1.3rem;font-weight:900;color:var(--navy);padding-top:15px;border-top:1px solid rgba(10,22,40,.08);display:flex;justify-content:space-between;align-items:center}
+.car-price span{color:var(--gold);font-size:.85rem;font-weight:600}
+
+/* فوتر */
+.footer{background:var(--navy);color:rgba(255,255,255,.7);padding:60px 0 30px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-col h4{color:var(--white);margin-bottom:20px;font-size:1.1rem;font-weight:800}
+.footer-col h4 span{color:var(--gold)}
+.footer-col p{line-height:2;font-size:.9rem;margin-bottom:20px}
+.footer-col a{display:block;padding:5px 0;font-size:.9rem;transition:.3s}
+.footer-col a:hover{color:var(--gold);padding-right:8px}
+.footer-socials{display:flex;gap:12px}
+.footer-social{width:42px;height:42px;background:rgba(212,175,55,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--gold);transition:.3s;font-size:1.1rem}
+.footer-social:hover{background:var(--gold);color:var(--navy);transform:translateY(-3px)}
+.footer-bottom{padding-top:30px;border-top:1px solid rgba(212,175,55,.15);text-align:center;font-size:.85rem}
+.footer-bottom span{color:var(--gold)}
+
+/* ریسپانسیو */
+@media (max-width:992px){
+.hero-title{font-size:2.2rem}
+.nav{display:none}
+.nav.open{display:flex;flex-direction:column;position:fixed;top:70px;right:20px;left:20px;background:rgba(10,22,40,.98);backdrop-filter:blur(20px);padding:30px;border-radius:20px;border:1px solid rgba(212,175,55,.3)}
+.menu-toggle{display:block}
+.btn-header{display:none}
+.footer-grid{grid-template-columns:1fr}
+.section-title{font-size:2rem}
+}
+@media (max-width:600px){
+.hero-title{font-size:1.7rem}
+.hero-btns{flex-direction:column}
+.btn{width:100%;justify-content:center}
+.section{padding:60px 0}
+.section-title{font-size:1.6rem}
+.filters{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+<div class="container header-inner">
+<a href="#" class="logo">
+<span class="logo-icon">🏎️</span>
+<span class="logo-text">اتوگالری <span>پرشیا</span></span>
+</a>
+<nav class="nav" id="nav">
+<a href="#home" class="nav-link">خانه</a>
+<a href="#cars" class="nav-link">ماشین‌ها</a>
+<a href="#about" class="nav-link">درباره ما</a>
+<a href="#contact" class="nav-link">تماس</a>
+</nav>
+<a href="#contact" class="btn-header">مشاوره رایگان</a>
+<button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-grid"></div>
+<div class="container hero-content">
+<div class="hero-badge"><span class="badge-dot"></span> لوکس‌ترین خودروها با بهترین قیمت</div>
+<h1 class="hero-title">اتوگالری <span class="gold">پرشیا</span><br>تجربه‌ای متفاوت از خرید خودرو</h1>
+<p class="hero-desc">بیش از ۱۵ سال تجربه در خرید و فروش خودروهای لوکس و صفر. با گارانتی اصالت و بهترین قیمت بازار.</p>
+<div class="hero-btns">
+<a href="#cars" class="btn btn-gold"><i class="fas fa-car"></i> مشاهده خودروها</a>
+<a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> تماس با ما</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="cars">
+<div class="container">
+<div class="section-head">
+<span class="section-label">خودروهای موجود</span>
+<h2 class="section-title">جدیدترین <span style="color:var(--gold)">خودروها</span></h2>
+<p class="section-desc">با کیفیت تضمینی و قیمت مناسب</p>
+</div>
+
+<div class="filters">
+<div class="filter-group">
+<label>برند</label>
+<select id="filterBrand">
+<option value="all">همه برندها</option>
+<option value="benz">بنز</option>
+<option value="bmw">بی‌ام‌و</option>
+<option value="audi">آئودی</option>
+<option value="toyota">تویوتا</option>
+<option value="hyundai">هیوندای</option>
+<option value="other">سایر</option>
+</select>
+</div>
+<div class="filter-group">
+<label>وضعیت</label>
+<select id="filterStatus">
+<option value="all">همه</option>
+<option value="new">صفر</option>
+<option value="used">کارکرده</option>
+</select>
+</div>
+<div class="filter-group">
+<label>حداکثر قیمت (تومان)</label>
+<input type="number" id="filterPrice" placeholder="مثلاً: 5000000000">
+</div>
+<div class="filter-group">
+<label>جستجو</label>
+<input type="text" id="filterSearch" placeholder="نام خودرو...">
+</div>
+</div>
+
+<div class="cars-grid" id="carsGrid">
+<div style="grid-column:1/-1;text-align:center;padding:60px;color:#666">
+<i class="fas fa-spinner fa-spin" style="font-size:2rem;color:var(--gold)"></i>
+<p style="margin-top:15px">در حال بارگذاری خودروها...</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-dark" id="about">
+<div class="container">
+<div class="section-head">
+<span class="section-label">درباره ما</span>
+<h2 class="section-title">چرا <span style="color:var(--gold)">اتوگالری پرشیا</span>؟</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px">
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2.5rem;margin-bottom:15px">🏆</div>
+<h3 style="color:var(--gold);margin-bottom:10px;font-weight:800">۱۵ سال تجربه</h3>
+<p style="color:rgba(255,255,255,.6);font-size:.9rem">با سابقه درخشان در بازار خودرو</p>
+</div>
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2.5rem;margin-bottom:15px">✅</div>
+<h3 style="color:var(--gold);margin-bottom:10px;font-weight:800">گارانتی اصالت</h3>
+<p style="color:rgba(255,255,255,.6);font-size:.9rem">تضمین سلامت فنی و بدنه</p>
+</div>
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2.5rem;margin-bottom:15px">💰</div>
+<h3 style="color:var(--gold);margin-bottom:10px;font-weight:800">بهترین قیمت</h3>
+<p style="color:rgba(255,255,255,.6);font-size:.9rem">قیمت منصفانه و رقابتی</p>
+</div>
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(212,175,55,.2);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2.5rem;margin-bottom:15px">🤝</div>
+<h3 style="color:var(--gold);margin-bottom:10px;font-weight:800">مشاوره رایگان</h3>
+<p style="color:rgba(255,255,255,.6);font-size:.9rem">راهنمایی تخصصی قبل از خرید</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="section-head">
+<span class="section-label">تماس</span>
+<h2 class="section-title">با ما در <span style="color:var(--gold)">ارتباط باشید</span></h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px">
+<a href="tel:09121234567" style="background:var(--white);border:1px solid rgba(10,22,40,.08);border-radius:20px;padding:35px;text-align:center;transition:.3s" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+<div style="font-size:2rem;color:var(--gold);margin-bottom:15px"><i class="fas fa-phone"></i></div>
+<h3 style="color:var(--navy);margin-bottom:8px;font-weight:800">تلفن</h3>
+<p style="color:#666">۰۹۱۲-۱۲۳-۴۵۶۷</p>
+</a>
+<a href="https://wa.me/989121234567" target="_blank" style="background:var(--white);border:1px solid rgba(10,22,40,.08);border-radius:20px;padding:35px;text-align:center;transition:.3s" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+<div style="font-size:2rem;color:#25D366;margin-bottom:15px"><i class="fab fa-whatsapp"></i></div>
+<h3 style="color:var(--navy);margin-bottom:8px;font-weight:800">واتساپ</h3>
+<p style="color:#666">پاسخ سریع</p>
+</a>
+<div style="background:var(--white);border:1px solid rgba(10,22,40,.08);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2rem;color:var(--gold);margin-bottom:15px"><i class="fas fa-map-marker-alt"></i></div>
+<h3 style="color:var(--navy);margin-bottom:8px;font-weight:800">آدرس</h3>
+<p style="color:#666">تهران، خیابان ولیعصر</p>
+</div>
+<div style="background:var(--white);border:1px solid rgba(10,22,40,.08);border-radius:20px;padding:35px;text-align:center">
+<div style="font-size:2rem;color:var(--gold);margin-bottom:15px"><i class="fas fa-clock"></i></div>
+<h3 style="color:var(--navy);margin-bottom:8px;font-weight:800">ساعات کاری</h3>
+<p style="color:#666">شنبه تا پنجشنبه ۹-۲۰</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>🏎️ اتوگالری <span>پرشیا</span></h4>
+<p>لوکس‌ترین خودروها با بهترین قیمت و گارانتی اصالت.</p>
+<div class="footer-socials">
+<a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+<a href="#" class="footer-social"><i class="fab fa-telegram"></i></a>
+<a href="#" class="footer-social"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h4>لینک‌های سریع</h4>
+<a href="#home">خانه</a>
+<a href="#cars">ماشین‌ها</a>
+<a href="#about">درباره ما</a>
+<a href="#contact">تماس</a>
+<a href="admin.html" style="color:var(--gold);font-weight:700">🔐 پنل مدیریت</a>
+</div>
+<div class="footer-col">
+<h4>ساعات کاری</h4>
+<a href="#">شنبه تا پنجشنبه: ۹-۲۰</a>
+<a href="#">جمعه: ۱۰-۱۸</a>
+<a href="#">تعطیلات: تعطیل</a>
+</div>
+</div>
+<div class="footer-bottom">© ۱۴۰۳ اتوگالری <span>پرشیا</span> - تمامی حقوق محفوظ است.</div>
+</div>
+</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAZA0hCoIyfRadKlSYYl48vUkNsAjByd-I",
+  authDomain: "persia-gallery.firebaseapp.com",
+  projectId: "persia-gallery",
+  storageBucket: "persia-gallery.firebasestorage.app",
+  messagingSenderId: "53718146976",
+  appId: "1:53718146976:web:4c3ebc177c9598b37f4ec5",
+  measurementId: "G-NK13W6BJNR"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
+}
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const pos = target.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: pos, behavior: 'smooth' });
+    }
+  });
+});
+
+let allCars = [];
+
+function formatPrice(num) {
+  return Number(num).toLocaleString('fa-IR');
+}
+
+function renderCars(cars) {
+  const grid = document.getElementById('carsGrid');
+  
+  if (cars.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:60px;color:#666">
+        <i class="fas fa-car" style="font-size:3rem;color:var(--gold);opacity:.5"></i>
+        <p style="margin-top:15px">خودرویی یافت نشد</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = cars.map(car => `
+    <div class="car-card">
+      <div class="car-image">
+        ${car.image ? `<img src="${car.image}" alt="${car.name}">` : '🚗'}
+        <span class="car-badge ${car.status === 'used' ? 'used' : ''}">
+          ${car.status === 'new' ? 'صفر' : 'کارکرده'}
+        </span>
+      </div>
+      <div class="car-info">
+        <h3>${car.name}</h3>
+        <div class="car-details">
+          <span><i class="fas fa-calendar"></i> ${car.year || '—'}</span>
+          <span><i class="fas fa-tachometer-alt"></i> ${car.km ? formatPrice(car.km) + ' km' : '—'}</span>
+          <span><i class="fas fa-palette"></i> ${car.color || '—'}</span>
+        </div>
+        <div class="car-price">
+          ${formatPrice(car.price)} <span>تومان</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function applyFilters() {
+  const brand = document.getElementById('filterBrand').value;
+  const status = document.getElementById('filterStatus').value;
+  const maxPrice = Number(document.getElementById('filterPrice').value) || Infinity;
+  const search = document.getElementById('filterSearch').value.toLowerCase();
+
+  const filtered = allCars.filter(car => {
+    if (brand !== 'all' && car.brand !== brand) return false;
+    if (status !== 'all' && car.status !== status) return false;
+    if (car.price > maxPrice) return false;
+    if (search && !car.name.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  renderCars(filtered);
+}
+
+async function loadCars() {
+  const sampleCars = [
+    { name: 'بنز S500', brand: 'benz', price: 15000000000, year: '۱۴۰۲', km: 0, color: 'مشکی', status: 'new' },
+    { name: 'بی‌ام‌و X5', brand: 'bmw', price: 12000000000, year: '۱۴۰۱', km: 25000,
